@@ -1,0 +1,369 @@
+// ADHS-freundliche Farbpalette und Layouts
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .date-display {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+  }
+}
+
+// Gemeinsame Stile für alle Abschnitte
+section {
+  margin-bottom: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--dark-bg);
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Fokus-Aufgabe Sektion - hervorgehoben mit auffälliger Gestaltung
+.focus-task-section {
+  h3 {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+
+  .focus-task-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+    background-color: #f9fbff;
+
+    .task-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+
+      h4 {
+        margin: 0;
+        font-size: 1.4rem;
+      }
+
+      .priority-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .task-description {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .task-meta {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .task-actions {
+      display: flex;
+      gap: 1rem;
+
+      button {
+        padding: 0.5rem 1.25rem;
+        border: none;
+        border-radius: 6px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &.complete-button {
+          background-color: var(--success-color);
+          color: white;
+
+          &:hover {
+            background-color: darken(#4caf50, 10%);
+          }
+        }
+
+        &.details-button {
+          background-color: #e0e0e0;
+          color: var(--text-primary);
+
+          &:hover {
+            background-color: #d0d0d0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Piorität-bezogene Farben
+.priority-urgent {
+  border-left-color: var(--danger-color) !important;
+
+  .priority-badge {
+    background-color: var(--danger-color) !important;
+    color: white !important;
+  }
+}
+
+.priority-high {
+  border-left-color: var(--warning-color) !important;
+
+  .priority-badge {
+    background-color: var(--warning-color) !important;
+    color: white !important;
+  }
+}
+
+.priority-medium {
+  border-left-color: var(--primary-color) !important;
+
+  .priority-badge {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+  }
+}
+
+.priority-low {
+  border-left-color: var(--accent-color) !important;
+
+  .priority-badge {
+    background-color: var(--accent-color) !important;
+    color: white !important;
+  }
+}
+
+// Statistik-Sektion
+.stats-section {
+  .streak-card {
+    text-align: center;
+
+    .streak-display {
+      margin: 1.5rem 0;
+
+      .streak-number {
+        font-size: 3rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .streak-label {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+      }
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: space-around;
+
+      .stat-item {
+        padding: 0.5rem;
+
+        .stat-number {
+          font-size: 2rem;
+          font-weight: bold;
+          color: var(--accent-color);
+        }
+
+        .stat-label {
+          font-size: 0.9rem;
+          color: var(--text-secondary);
+        }
+      }
+    }
+  }
+}
+
+// Optimierte Sequenz-Sektion
+.optimized-sequence-section {
+  .section-description {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .task-card {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 8px;
+      background-color: #f9fbff;
+      border-left: 4px solid var(--primary-color);
+
+      .task-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: bold;
+        margin-right: 1rem;
+      }
+
+      .task-content {
+        flex: 1;
+
+        h4 {
+          margin: 0;
+          margin-bottom: 0.25rem;
+        }
+
+        .task-meta {
+          display: flex;
+          gap: 1rem;
+          font-size: 0.85rem;
+          color: var(--text-secondary);
+
+          .task-category {
+            background-color: #f0f0f0;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+          }
+
+          .estimated-time {
+            font-style: italic;
+          }
+        }
+      }
+
+      .task-actions {
+        .complete-button {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          background-color: var(--success-color);
+          color: white;
+          border: none;
+          font-size: 1.2rem;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Heutige und Überfällige Aufgaben
+.today-tasks-section,
+.overdue-tasks-section {
+  .task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .task-card {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      background-color: #f9fbff;
+      border-left: 3px solid var(--primary-color);
+
+      input[type="checkbox"] {
+        margin-right: 1rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        accent-color: var(--primary-color);
+      }
+
+      .task-content {
+        flex: 1;
+
+        h4 {
+          margin: 0;
+          transition: all 0.2s ease;
+
+          &.completed {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+          }
+        }
+
+        .task-meta {
+          font-size: 0.85rem;
+          color: var(--text-secondary);
+        }
+      }
+    }
+  }
+}
+
+// Spezielle Stile für überfällige Aufgaben
+.overdue-tasks-section {
+  .task-list.overdue {
+    .task-card.overdue {
+      border-left-color: var(--danger-color);
+      background-color: rgba(255, 82, 82, 0.05);
+
+      .overdue-date {
+        color: var(--danger-color);
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .stats-section .streak-card .stats-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .focus-task-card .task-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .priority-badge {
+      margin-top: 0.5rem;
+    }
+  }
+
+  .task-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+

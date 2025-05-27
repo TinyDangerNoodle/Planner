@@ -1,0 +1,105 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h2>Mein ADHS Planner</h2>
+    <p class="date-display">{{ today | date:'EEEE, dd. MMMM yyyy' }}</p>
+  </div>
+
+  <!-- Fokus-Aufgabe für sofortige Aufmerksamkeit -->
+  <section class="focus-task-section" *ngIf="nextFocusTask">
+    <h3>JETZT FOKUSSIEREN:</h3>
+    <div class="focus-task-card" [class]="getPriorityClass(nextFocusTask.priority)">
+      <div class="task-header">
+        <h4>{{ nextFocusTask.title }}</h4>
+        <span class="priority-badge">{{ nextFocusTask.priority }}</span>
+      </div>
+      <p class="task-description" *ngIf="nextFocusTask.description">
+        {{ nextFocusTask.description }}
+      </p>
+      <div class="task-meta" *ngIf="nextFocusTask.dueDate">
+        <span class="due-date">Fällig: {{ nextFocusTask.dueDate | date:'short' }}</span>
+      </div>
+      <div class="task-actions">
+        <button class="complete-button" (click)="toggleTaskCompletion(nextFocusTask.id)">
+          Erledigt
+        </button>
+        <button class="details-button" [routerLink]="['/tasks']" [queryParams]="{id: nextFocusTask.id}">
+          Details
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motivations-Streak und Statistiken -->
+  <section class="stats-section">
+    <div class="streak-card">
+      <h3>Deine Erfolge</h3>
+      <div class="streak-display">
+        <div class="streak-number">{{ currentStreak }}</div>
+        <div class="streak-label">Tage in Folge aktiv</div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">{{ tasksCompletedToday }}</div>
+          <div class="stat-label">Heute erledigt</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">{{ tasksCompletedThisWeek }}</div>
+          <div class="stat-label">Diese Woche</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Optimierte Task-Sequenz -->
+  <section class="optimized-sequence-section">
+    <h3>Empfohlene Reihenfolge</h3>
+    <p class="section-description">Diese Reihenfolge ist für dein ADHS-Gehirn optimiert:</p>
+    <div class="task-list">
+      <div class="task-card" *ngFor="let task of optimizedTasks; let i = index" [class]="getPriorityClass(task.priority)">
+        <div class="task-number">{{ i + 1 }}</div>
+        <div class="task-content">
+          <h4>{{ task.title }}</h4>
+          <div class="task-meta">
+            <span *ngIf="task.category" class="task-category">{{ task.category }}</span>
+            <span *ngIf="task.estimatedTime" class="estimated-time">~{{ task.estimatedTime }} Min</span>
+          </div>
+        </div>
+        <div class="task-actions">
+          <button class="complete-button" (click)="toggleTaskCompletion(task.id)">✓</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heutige Aufgaben -->
+  <section class="today-tasks-section" *ngIf="todaysTasks.length > 0">
+    <h3>Heutige Aufgaben</h3>
+    <div class="task-list">
+      <div class="task-card" *ngFor="let task of todaysTasks" [class]="getPriorityClass(task.priority)">
+        <input type="checkbox" [checked]="task.completed" (change)="toggleTaskCompletion(task.id)" />
+        <div class="task-content">
+          <h4 [class.completed]="task.completed">{{ task.title }}</h4>
+          <div class="task-meta">
+            <span class="due-time" *ngIf="task.dueDate">{{ task.dueDate | date:'HH:mm' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Überfällige Aufgaben - deutlich markiert -->
+  <section class="overdue-tasks-section" *ngIf="overdueTasks.length > 0">
+    <h3>Überfällige Aufgaben</h3>
+    <div class="task-list overdue">
+      <div class="task-card overdue" *ngFor="let task of overdueTasks">
+        <input type="checkbox" [checked]="task.completed" (change)="toggleTaskCompletion(task.id)" />
+        <div class="task-content">
+          <h4 [class.completed]="task.completed">{{ task.title }}</h4>
+          <div class="task-meta">
+            <span class="overdue-date">Überfällig seit: {{ task.dueDate | date:'dd.MM.yyyy' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
