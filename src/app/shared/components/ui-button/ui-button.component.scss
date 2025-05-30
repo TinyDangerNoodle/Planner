@@ -1,0 +1,154 @@
+@import '../../../theme/theme.scss';
+
+// Basis-Button-Stil
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  white-space: nowrap;
+  @include transition-standard;
+
+  &:focus {
+    outline: 2px solid rgba($color-primary, 0.4);
+    outline-offset: 2px;
+  }
+
+  &.btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Button-Größen
+.btn-small {
+  font-size: $font-size-xs;
+  padding: $spacing-xs $spacing-md;
+  height: 32px;
+}
+
+.btn-medium {
+  font-size: $font-size-sm;
+  padding: $spacing-sm $spacing-lg;
+  height: 40px;
+}
+
+.btn-large {
+  font-size: $font-size-base;
+  padding: $spacing-md $spacing-xl;
+  height: 48px;
+}
+
+// Button-Varianten
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
+
+  &:hover:not(.btn-disabled) {
+    background-color: darken($color-primary, 10%);
+  }
+
+  &:active:not(.btn-disabled) {
+    background-color: darken($color-primary, 15%);
+  }
+}
+
+.btn-secondary {
+  background-color: $color-secondary;
+  color: $color-white;
+
+  &:hover:not(.btn-disabled) {
+    background-color: darken($color-secondary, 10%);
+  }
+
+  &:active:not(.btn-disabled) {
+    background-color: darken($color-secondary, 15%);
+  }
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+
+  &:hover:not(.btn-disabled) {
+    background-color: rgba($color-primary, 0.05);
+  }
+
+  &:active:not(.btn-disabled) {
+    background-color: rgba($color-primary, 0.1);
+  }
+}
+
+.btn-danger {
+  background-color: $color-error;
+  color: $color-white;
+
+  &:hover:not(.btn-disabled) {
+    background-color: darken($color-error, 10%);
+  }
+
+  &:active:not(.btn-disabled) {
+    background-color: darken($color-error, 15%);
+  }
+}
+
+.btn-success {
+  background-color: $color-success;
+  color: $color-white;
+
+  &:hover:not(.btn-disabled) {
+    background-color: darken($color-success, 10%);
+  }
+
+  &:active:not(.btn-disabled) {
+    background-color: darken($color-success, 15%);
+  }
+}
+
+.btn-warning {
+  background-color: $color-warning;
+  color: $color-grey-900;
+
+  &:hover:not(.btn-disabled) {
+    background-color: darken($color-warning, 10%);
+  }
+
+  &:active:not(.btn-disabled) {
+    background-color: darken($color-warning, 15%);
+  }
+}
+
+// Button mit voller Breite
+.btn-full-width {
+  width: 100%;
+}
+
+// Button mit Icon
+.btn-with-icon {
+  .btn-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  &.icon-left {
+    .btn-icon {
+      margin-right: $spacing-xs;
+    }
+  }
+
+  &.icon-right {
+    .btn-icon {
+      margin-left: $spacing-xs;
+    }
+  }
+
+  .material-icons {
+    font-size: 18px; // Passende Größe für Icons
+  }
+}

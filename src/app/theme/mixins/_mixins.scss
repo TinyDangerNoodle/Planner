@@ -1,0 +1,78 @@
+// Importiere alle Variablen
+@import '../variables/colors';
+@import '../variables/typography';
+@import '../variables/spacing';
+
+// Schatten-Mixins
+@mixin shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba($color-black, 0.05);
+}
+
+@mixin shadow {
+  box-shadow: 0 1px 3px 0 rgba($color-black, 0.1), 0 1px 2px -1px rgba($color-black, 0.1);
+}
+
+@mixin shadow-md {
+  box-shadow: 0 4px 6px -1px rgba($color-black, 0.1), 0 2px 4px -2px rgba($color-black, 0.1);
+}
+
+@mixin shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba($color-black, 0.1), 0 4px 6px -4px rgba($color-black, 0.1);
+}
+
+@mixin shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba($color-black, 0.1), 0 8px 10px -6px rgba($color-black, 0.1);
+}
+
+// Transitions
+@mixin transition-standard {
+  transition: all 0.3s ease;
+}
+
+@mixin transition-fast {
+  transition: all 0.15s ease;
+}
+
+@mixin transition-slow {
+  transition: all 0.5s ease;
+}
+
+// Flexbox-Utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Responsive Breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (min-width: $breakpoint-xs) { @content; }
+  }
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  }
+  @if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+  @if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+  @if $breakpoint == xxl {
+    @media (min-width: $breakpoint-xxl) { @content; }
+  }
+}

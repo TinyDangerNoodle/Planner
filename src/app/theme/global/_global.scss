@@ -1,0 +1,194 @@
+/*
+  Global Stylesheet für die Planner App
+  Diese Datei importiert alle Theme-Komponenten und definiert globale Stile
+*/
+
+// Importiere Variablen und Mixins
+@import '../variables/colors';
+@import '../variables/typography';
+@import '../variables/spacing';
+@import '../mixins/mixins';
+
+// Reset und Basis-Stile
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $text-color-light;
+  background-color: $background-color-light;
+}
+
+// Typografie
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  font-weight: $h1-font-weight;
+  line-height: $h1-line-height;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  font-weight: $h2-font-weight;
+  line-height: $h2-line-height;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-weight: $h3-font-weight;
+  line-height: $h3-line-height;
+}
+
+h4 {
+  font-size: $h4-font-size;
+  font-weight: $h4-font-weight;
+  line-height: $h4-line-height;
+}
+
+h5 {
+  font-size: $h5-font-size;
+  font-weight: $h5-font-weight;
+  line-height: $h5-line-height;
+}
+
+h6 {
+  font-size: $h6-font-size;
+  font-weight: $h6-font-weight;
+  line-height: $h6-line-height;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  @include transition-fast;
+
+  &:hover {
+    color: $color-primary-dark;
+    text-decoration: underline;
+  }
+}
+
+// Container
+.container {
+  width: 100%;
+  padding-right: $spacing-md;
+  padding-left: $spacing-md;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include respond-to(sm) {
+    max-width: $container-sm;
+  }
+
+  @include respond-to(md) {
+    max-width: $container-md;
+  }
+
+  @include respond-to(lg) {
+    max-width: $container-lg;
+  }
+
+  @include respond-to(xl) {
+    max-width: $container-xl;
+  }
+}
+
+// Hilfsklassen
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-light {
+  font-weight: $font-weight-light;
+}
+
+// Margin und Padding Hilfsklassen
+@each $size-name, $size-value in (
+  'xs': $spacing-xs,
+  'sm': $spacing-sm,
+  'md': $spacing-md,
+  'lg': $spacing-lg,
+  'xl': $spacing-xl
+) {
+  .m-#{$size-name} {
+    margin: $size-value;
+  }
+  .mt-#{$size-name} {
+    margin-top: $size-value;
+  }
+  .mr-#{$size-name} {
+    margin-right: $size-value;
+  }
+  .mb-#{$size-name} {
+    margin-bottom: $size-value;
+  }
+  .ml-#{$size-name} {
+    margin-left: $size-value;
+  }
+  .mx-#{$size-name} {
+    margin-left: $size-value;
+    margin-right: $size-value;
+  }
+  .my-#{$size-name} {
+    margin-top: $size-value;
+    margin-bottom: $size-value;
+  }
+
+  .p-#{$size-name} {
+    padding: $size-value;
+  }
+  .pt-#{$size-name} {
+    padding-top: $size-value;
+  }
+  .pr-#{$size-name} {
+    padding-right: $size-value;
+  }
+  .pb-#{$size-name} {
+    padding-bottom: $size-value;
+  }
+  .pl-#{$size-name} {
+    padding-left: $size-value;
+  }
+  .px-#{$size-name} {
+    padding-left: $size-value;
+    padding-right: $size-value;
+  }
+  .py-#{$size-name} {
+    padding-top: $size-value;
+    padding-bottom: $size-value;
+  }
+}
